@@ -1,0 +1,577 @@
+{
+  "checkpoints": [
+    {
+      "id": "cp_start",
+      "label": "START",
+      "x": 1900,
+      "y": 2050,
+      "w": 180,
+      "h": 50,
+      "rot": 1.5708
+    },
+    {
+      "id": "cp_a",
+      "label": "CHECKPOINT A",
+      "x": 2900,
+      "y": 1800,
+      "w": 180,
+      "h": 50,
+      "rot": 0
+    },
+    {
+      "id": "cp_b",
+      "label": "CHECKPOINT B",
+      "x": 1800,
+      "y": 1150,
+      "w": 180,
+      "h": 50,
+      "rot": 0
+    },
+    {
+      "id": "cp_c",
+      "label": "CHECKPOINT C",
+      "x": 2710,
+      "y": 400,
+      "w": 180,
+      "h": 50,
+      "rot": -0.523599
+    },
+    {
+      "id": "cp_d",
+      "label": "CHECKPOINT D",
+      "x": 1300,
+      "y": 550,
+      "w": 180,
+      "h": 50,
+      "rot": 0
+    },
+    {
+      "id": "cp_e",
+      "label": "CHECKPOINT E",
+      "x": 900,
+      "y": 200,
+      "w": 180,
+      "h": 50,
+      "rot": -1.5708
+    },
+    {
+      "id": "cp_f",
+      "label": "CHECKPOINT F",
+      "x": 500,
+      "y": 600,
+      "w": 180,
+      "h": 50,
+      "rot": 3.14159
+    },
+    {
+      "id": "cp_g",
+      "label": "CHECKPOINT G",
+      "x": 1000,
+      "y": 1500,
+      "w": 180,
+      "h": 50,
+      "rot": 3.14159
+    },
+    {
+      "id": "cp_h",
+      "label": "CHECKPOINT H",
+      "x": 700,
+      "y": 2050,
+      "w": 180,
+      "h": 50,
+      "rot": 1.5708
+    }
+  ],
+  "concreteZones": [
+    {
+      "id": "paddock_complex",
+      "label": "PADDOCK COMPLEX",
+      "layer": 0,
+      "x": 1100,
+      "y": 1200,
+      "w": 1500,
+      "h": 900,
+      "fillColor": "#8f9bba",
+      "gridColor": "#7884a5",
+      "gridSize": 100
+    },
+    {
+      "id": "concrete_top",
+      "label": "CONCRETE TOP",
+      "layer": 0,
+      "x": 550,
+      "y": 250,
+      "w": 700,
+      "h": 600,
+      "fillColor": "#8f9bba",
+      "gridColor": "#7884a5",
+      "gridSize": 100
+    },
+    {
+      "id": "concrete_skill_panel",
+      "label": "CONCRETE SKILL PANEL",
+      "layer": 0,
+      "x": 1500,
+      "y": 0,
+      "w": 500,
+      "h": 300,
+      "fillColor": "#8f9bba",
+      "gridColor": "#7884a5",
+      "gridSize": 100
+    }
+  ],
+  "parkingLots": [
+    {
+      "id": "visitor_parking",
+      "label": "VISITOR PARKING",
+      "layer": 0,
+      "x": 2200,
+      "y": 1600,
+      "w": 380,
+      "h": 320,
+      "rows": 4,
+      "cols": 10,
+      "fillColor": "#9aa5c4",
+      "stopColor": "#eab308"
+    }
+  ],
+  "sandTraps": [
+    {
+      "id": "sand_top_left",
+      "layer": 0,
+      "x": 0,
+      "y": 0,
+      "w": 1500,
+      "h": 125,
+      "fillColor": "#d97706",
+      "slowFactor": 0.92
+    },
+    {
+      "id": "sand_turn_2",
+      "layer": 0,
+      "x": 2000,
+      "y": 1100,
+      "w": 1200,
+      "h": 100,
+      "fillColor": "#d97706",
+      "slowFactor": 0.92
+    },
+    {
+      "id": "sand_right",
+      "layer": 0,
+      "x": 2850,
+      "y": 800,
+      "w": 350,
+      "h": 310,
+      "fillColor": "#d97706",
+      "slowFactor": 0.92
+    },
+    {
+      "id": "sand_bottom_1",
+      "layer": 0,
+      "x": 600,
+      "y": 2160,
+      "w": 2100,
+      "h": 220,
+      "fillColor": "#d97706",
+      "slowFactor": 0.9
+    }
+  ],
+  "lakes": [
+  {
+    "id": "lake_1",
+    "x": 2200,
+    "y": 600,
+    "w": 700,
+    "h": 420,
+    "rot": -0.21,
+    "speedLimit": 1.8,
+    "slowFactor": 0.75,
+    "waterColor": "rgba(37, 99, 235, 0.45)",
+    "deepColor": "#1e3a8a",
+    "bankColor": "#b45309"
+  }
+],
+  "buildings": [
+    {
+      "id": "bldg_hq",
+      "name": "PORTFOLIO HQ",
+      "layer": 2,
+      "x": 1200,
+      "y": 1400,
+      "w": 400,
+      "h": 350,
+      "rot": 0,
+      "isStatic": true,
+      "color": "#334155",
+      "accent": "#e2e8f0",
+      "margin": 18,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "paddock",
+      "name": "PADDOCK",
+      "layer": 2,
+      "x": 1750,
+      "y": 1600,
+      "w": 400,
+      "h": 150,
+      "rot": 0,
+      "isStatic": true,
+      "color": "#1e293b",
+      "accent": "#f59e0b",
+      "margin": 18,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "service_bay",
+      "name": "SERVICE BAY",
+      "layer": 2,
+      "x": 1750,
+      "y": 1600,
+      "w": 400,
+      "h": 150,
+      "rot": 0,
+      "isStatic": true,
+      "color": "#1e293b",
+      "accent": "#f59e0b",
+      "margin": 18,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "race_control_tower",
+      "name": "TOWER",
+      "layer": 2,
+      "x": 1750,
+      "y": 1400,
+      "w": 150,
+      "h": 150,
+      "rot": 0,
+      "isStatic": true,
+      "color": "#1e293b",
+      "accent": "#3b82f6",
+      "margin": 18,
+      "bounceFactor": 0.4
+    }
+  ],
+  "grandstands": [
+    {
+      "id": "grandstand_1",
+      "name": "TRIBUNE 1",
+      "layer": 2,
+      "x": 800,
+      "y": 2200,
+      "w": 350,
+      "h": 120,
+      "rot": 3.14159,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_2",
+      "name": "TRIBUNE 2",
+      "layer": 2,
+      "x": 1150,
+      "y": 2200,
+      "w": 350,
+      "h": 120,
+      "rot": 3.14159,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_3",
+      "name": "TRIBUNE 3",
+      "layer": 2,
+      "x": 1500,
+      "y": 2200,
+      "w": 350,
+      "h": 120,
+      "rot": 3.14159,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_4",
+      "name": "TRIBUNE 4",
+      "layer": 2,
+      "x": 1850,
+      "y": 2200,
+      "w": 350,
+      "h": 120,
+      "rot": 3.14159,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_5",
+      "name": "TRIBUNE 5",
+      "layer": 2,
+      "x": 2200,
+      "y": 2200,
+      "w": 350,
+      "h": 120,
+      "rot": 3.14159,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_6",
+      "name": "TRIBUNE 6",
+      "layer": 2,
+      "x": 2600,
+      "y": 120,
+      "w": 350,
+      "h": 120,
+      "rot": 0.610865,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_7",
+      "name": "TRIBUNE 7",
+      "layer": 2,
+      "x": 2790,
+      "y": 465,
+      "w": 350,
+      "h": 120,
+      "rot": 1.5708,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_8",
+      "name": "TRIBUNE 8",
+      "layer": 2,
+      "x": 120,
+      "y": 250,
+      "w": 350,
+      "h": 120,
+      "rot": 4.71239,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_9",
+      "name": "TRIBUNE 9",
+      "layer": 2,
+      "x": 120,
+      "y": 600,
+      "w": 350,
+      "h": 120,
+      "rot": 4.71239,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    {
+      "id": "grandstand_10",
+      "name": "TRIBUNE 10",
+      "layer": 2,
+      "x": 120,
+      "y": 950,
+      "w": 350,
+      "h": 120,
+      "rot": 4.71239,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    }
+  ],
+  "props": [
+    { "type": "tires", "layer": 3, "x": 2670, "y": 1930, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 2670, "y": 1630, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 610, "y": 1200, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 610, "y": 1150, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 610, "y": 1100, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 610, "y": 1050, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 520, "y": 1850, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 620, "y": 1850, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 720, "y": 1850, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 820, "y": 1850, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 920, "y": 1850, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 570, "y": 1900, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 670, "y": 1900, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 770, "y": 1900, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 },
+    { "type": "tires", "layer": 3, "x": 870, "y": 1900, "r": 20, "rot": 0, "isStatic": true, "bounceFactor": 0.5 }
+  ],
+  "prefabs": [
+    {
+      "id": "cone_line_in_parkinglot",
+      "prefab": "cone_line",
+      "layer": 3,
+      "points": [
+        { "x": 2250, "y": 1950 },
+        { "x": 2350, "y": 1950 },
+        { "x": 2450, "y": 1950 },
+        { "x": 2550, "y": 1950 }
+      ],
+      "r": 12,
+      "bounceFactor": 0.3
+    },
+    {
+      "id": "cone_line_in_lake",
+      "prefab": "cone_line",
+      "layer": 3,
+      "points": [
+        { "x": 2540, "y": 430 },
+        { "x": 2570, "y": 470 },
+        { "x": 2590, "y": 510 },
+        { "x": 2600, "y": 550 },
+        { "x": 2590, "y": 590 },
+        { "x": 2575, "y": 630 }
+      ],
+      "r": 12,
+      "bounceFactor": 0.3
+    },
+    {
+      "id": "cone_in_contact_panel",
+      "prefab": "cone_line",
+      "layer": 3,
+      "points": [
+        { "x": 1200, "y": 300 },
+        { "x": 1100, "y": 300 },
+        { "x": 1000, "y": 300 },
+
+        { "x": 800, "y": 300 },
+        { "x": 700, "y": 300 },
+        { "x": 600, "y": 300 }
+      ],
+      "r": 12,
+      "bounceFactor": 0.3
+    },
+    {
+      "id": "barrier_line_hairpin",
+      "prefab": "road_barrier_line",
+      "layer": 3,
+      "width": 38,
+      "height": 14,
+      "isStatic": true,
+      "bounceFactor": 0.5,
+      "barriers": [
+        { "x": 2375, "y": 1320, "rot": 0.349066 },
+        { "x": 2335, "y": 1305, "rot": 0.349066 },
+        { "x": 2295, "y": 1290, "rot": 0.349066 },
+        { "x": 2255, "y": 1275, "rot": 0.349066 },
+        { "x": 2215, "y": 1260, "rot": 0.349066 },
+        { "x": 2175, "y": 1245, "rot": 0.349066 },
+        { "x": 2140, "y": 1220, "rot": 0.907571 },
+        { "x": 2126, "y": 1175, "rot": 1.5708 },
+        { "x": 2126, "y": 1135, "rot": 1.5708 },
+        { "x": 2126, "y": 1095, "rot": 1.5708 }
+      ]
+    },
+    {
+      "id": "barrier_line_turn_4",
+      "prefab": "road_barrier_line",
+      "layer": 3,
+      "width": 38,
+      "height": 14,
+      "isStatic": true,
+      "bounceFactor": 0.5,
+      "barriers": [
+        { "x": 1400, "y": 635, "rot": -0.785398 },
+        { "x": 1435, "y": 600, "rot": -0.785398 },
+        { "x": 1470, "y": 565, "rot": -0.785398 },
+        
+        { "x": 1500, "y": 530, "rot": 1.5708 },
+        { "x": 1500, "y": 490, "rot": 1.5708 },
+        { "x": 1500, "y": 450, "rot": 1.5708 },
+        { "x": 1500, "y": 410, "rot": 1.5708 },
+        { "x": 1500, "y": 370, "rot": 1.5708 },
+        { "x": 1500, "y": 340, "rot": 1.5708 },
+        { "x": 1500, "y": 300, "rot": 1.5708 },
+        { "x": 1500, "y": 260, "rot": 1.5708 },
+        { "x": 1500, "y": 220, "rot": 1.5708 },
+        { "x": 1500, "y": 180, "rot": 1.5708 },
+        { "x": 1500, "y": 140, "rot": 1.5708 },
+        { "x": 1500, "y": 100, "rot": 1.5708 }
+      ]
+    },
+    {
+      "id": "barrier_line_contact_panel",
+      "prefab": "road_barrier_line",
+      "layer": 3,
+      "width": 38,
+      "height": 14,
+      "isStatic": true,
+      "bounceFactor": 0.5,
+      "barriers": [
+        { "x": 1150, "y": 700, "rot": 1.5708 },
+        { "x": 1150, "y": 660, "rot": 1.5708 },
+        { "x": 1150, "y": 620, "rot": 1.5708 },
+        { "x": 1150, "y": 580, "rot": 1.5708 },
+        { "x": 1150, "y": 540, "rot": 1.5708 },
+        { "x": 1150, "y": 500, "rot": 1.5708 },
+        { "x": 1150, "y": 460, "rot": 1.5708 },
+        { "x": 1150, "y": 420, "rot": 1.5708 },
+        { "x": 1150, "y": 380, "rot": 1.5708 },
+        { "x": 1150, "y": 340, "rot": 1.5708 },
+
+        { "x": 650, "y": 700, "rot": 1.5708 },
+        { "x": 650, "y": 660, "rot": 1.5708 },
+        { "x": 650, "y": 620, "rot": 1.5708 },
+        { "x": 650, "y": 580, "rot": 1.5708 },
+        { "x": 650, "y": 540, "rot": 1.5708 },
+        { "x": 650, "y": 500, "rot": 1.5708 },
+        { "x": 650, "y": 460, "rot": 1.5708 },
+        { "x": 650, "y": 420, "rot": 1.5708 },
+        { "x": 650, "y": 380, "rot": 1.5708 },
+        { "x": 650, "y": 340, "rot": 1.5708 }
+      ]
+    },
+    {
+      "id": "barrier_line_turn_8",
+      "prefab": "road_barrier_line",
+      "layer": 3,
+      "width": 38,
+      "height": 14,
+      "isStatic": true,
+      "bounceFactor": 0.5,
+      "barriers": [
+        { "x": 830, "y": 1500, "rot": 0 },
+        { "x": 790, "y": 1500, "rot": 0 },
+        { "x": 750, "y": 1500, "rot": 0 },
+        { "x": 710, "y": 1500, "rot": 0 },
+        { "x": 670, "y": 1500, "rot": 0 },
+        { "x": 630, "y": 1500, "rot": 0 },
+        { "x": 590, "y": 1500, "rot": 0 },
+        { "x": 550, "y": 1500, "rot": 0 },
+        { "x": 510, "y": 1500, "rot": 0 },
+        { "x": 470, "y": 1500, "rot": 0 },
+        { "x": 430, "y": 1500, "rot": 0 },
+        { "x": 390, "y": 1500, "rot": 0 },
+        { "x": 350, "y": 1500, "rot": 0 },
+        { "x": 310, "y": 1500, "rot": 0 }
+      ]
+    }
+  ]
+}
