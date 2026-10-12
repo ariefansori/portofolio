@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Editor - Generally Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CSS & JS (Termasuk JS untuk pemuatan Font Glyph Canvas) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts Pixel & CRT -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        .font-pixel { font-family: 'Press Start 2P', monospace; }
+        .font-mono-custom { font-family: 'Share Tech Mono', monospace; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        canvas { image-rendering: pixelated; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 h-screen overflow-hidden flex flex-col font-mono-custom select-none">
+
+    <!-- TOP TOOLBAR -->
+    <header class="h-14 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between z-10 shrink-0">
+        <div class="flex items-center space-x-3">
+            <a href="index.html" class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700 transition" title="Back to Game">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-map text-yellow-400 text-lg"></i>
+                <h1 class="font-pixel text-xs text-yellow-400 tracking-wide">TRACK EDITOR</h1>
+            </div>
+            <span class="text-xs text-slate-500 border-l border-slate-800 pl-3">World: 3200x2400</span>
+        </div>
+
+        <!-- Zoom & View Controls -->
+        <div class="flex items-center space-x-2 bg-slate-950 p-1 rounded border border-slate-800">
+            <button id="btnZoomOut" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-pixel rounded transition" title="Zoom Out (-)">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+            <span id="zoomDisplay" class="text-xs font-pixel w-14 text-center text-yellow-400">100%</span>
+            <button id="btnZoomIn" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs font-pixel rounded transition" title="Zoom In (+)">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <button id="btnResetView" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded transition" title="Reset View">
+                <i class="fa-solid fa-rotate-left"></i> Reset
+            </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center space-x-2">
+            <button id="btnImportJson" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded text-xs font-pixel transition flex items-center space-x-1.5">
+                <i class="fa-solid fa-file-import text-blue-400"></i>
+                <span>IMPORT JSON</span>
+            </button>
+            <button id="btnExportClipboard" class="px-3 py-1.5 bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold border border-yellow-400 rounded text-xs font-pixel transition flex items-center space-x-1.5 shadow-lg shadow-yellow-500/20">
+                <i class="fa-solid fa-copy"></i>
+                <span>COPY JSON</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT LAYOUT -->
+    <div class="flex-1 flex overflow-hidden">
+
+        <!-- LEFT SIDEBAR: OBJECT PALETTE & TREE -->
+        <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col shrink-0">
+            <div class="p-3 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
+                <span class="font-pixel text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-boxes-stacked mr-1"></i> Palette / Add</span>
+                <span class="text-[10px] text-slate-500">Quick Add</span>
+            </div>
+
+            <!-- Object Types Quick Add -->
+            <div class="p-3 border-b border-slate-800 space-y-2 overflow-y-auto max-h-64 bg-slate-900/50">
+                <div class="grid grid-cols-2 gap-1.5 text-xs">
+                    <button data-type="checkpoints" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-flag-checkered text-green-400 w-4"></i>
+                        <span class="truncate">Checkpoint</span>
+                    </button>
+                    <button data-type="concreteZones" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-vector-square text-slate-400 w-4"></i>
+                        <span class="truncate">Concrete</span>
+                    </button>
+                    <button data-type="parkingLots" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-square-parking text-yellow-400 w-4"></i>
+                        <span class="truncate">Parking</span>
+                    </button>
+                    <button data-type="sandTraps" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-box text-amber-600 w-4"></i>
+                        <span class="truncate">Sand Trap</span>
+                    </button>
+                    <button data-type="lakes" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-water text-blue-400 w-4"></i>
+                        <span class="truncate">Lake</span>
+                    </button>
+                    <button data-type="buildings" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-building text-slate-300 w-4"></i>
+                        <span class="truncate">Building</span>
+                    </button>
+                    <button data-type="grandstands" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-users-rectangle text-purple-400 w-4"></i>
+                        <span class="truncate">Grandstand</span>
+                    </button>
+                    <button data-type="crowds" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5">
+                        <i class="fa-solid fa-person-running text-pink-400 w-4"></i>
+                        <span class="truncate">Crowd</span>
+                    </button>
+                    <button data-type="props" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5" title="Objek tunggal — pilih type di panel Properties (tires / cone / road_barrier / bush)">
+                        <i class="fa-solid fa-bullseye text-red-400 w-4"></i>
+                        <span class="truncate">Prop (1 objek)</span>
+                    </button>
+
+                    <div class="col-span-2 text-[9px] font-pixel text-slate-500 uppercase tracking-wider pt-1 flex items-center space-x-1.5">
+                        <span class="flex-1 border-t border-slate-800"></span>
+                        <span>Prefab (grup)</span>
+                        <span class="flex-1 border-t border-slate-800"></span>
+                    </div>
+
+                    <button data-type="prefab_barrier" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5" title="Kumpulan road barrier (tiap node punya rot)">
+                        <i class="fa-solid fa-road-barrier text-red-400 w-4"></i>
+                        <span class="truncate">Barrier Line</span>
+                    </button>
+                    <button data-type="prefab_cone" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5" title="Kumpulan cone">
+                        <i class="fa-solid fa-traffic-cone text-orange-400 w-4"></i>
+                        <span class="truncate">Cone Line</span>
+                    </button>
+                    <button data-type="prefab_tires" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5" title="Kumpulan ban">
+                        <i class="fa-solid fa-circle-notch text-slate-300 w-4"></i>
+                        <span class="truncate">Tires</span>
+                    </button>
+                    <button data-type="prefab_bush" class="btn-palette-add p-1.5 bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-left flex items-center space-x-1.5" title="Kumpulan semak">
+                        <i class="fa-solid fa-leaf text-green-500 w-4"></i>
+                        <span class="truncate">Bush</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Existing Objects Tree -->
+            <div class="p-2 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
+                <span class="font-pixel text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-list-ul mr-1"></i> Objects List</span>
+                <span id="objectCountDisplay" class="text-[10px] text-slate-500 font-mono-custom">0 items</span>
+            </div>
+            
+            <div id="objectsTree" class="flex-1 overflow-y-auto p-2 space-y-1 text-xs">
+                <!-- Populated via Javascript -->
+            </div>
+        </aside>
+
+        <!-- CENTER CANVAS WORKSPACE -->
+        <main class="flex-1 relative bg-slate-950 overflow-hidden flex items-center justify-center">
+            <canvas id="editorCanvas" class="cursor-crosshair bg-slate-950"></canvas>
+
+            <!-- Coordinate Info Overlay -->
+            <div class="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur border border-slate-800 px-3 py-1.5 rounded text-[11px] font-mono-custom text-slate-400 flex items-center space-x-4">
+                <div>X: <span id="mouseWorldX" class="text-white">0</span></div>
+                <div>Y: <span id="mouseWorldY" class="text-white">0</span></div>
+                <div>Selected: <span id="selectedObjectIdDisplay" class="text-yellow-400">None</span></div>
+            </div>
+
+            <!-- Floating Overlay Controls -->
+            <div class="absolute top-3 right-3 bg-slate-900/90 backdrop-blur border border-slate-800 p-1.5 rounded flex items-center space-x-1">
+                <button id="btnGridToggle" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded transition flex items-center space-x-1" title="Toggle Grid Lines">
+                    <i class="fa-solid fa-border-all"></i>
+                    <span>Grid</span>
+                </button>
+                <button id="btnDeleteSelected" class="px-2 py-1 bg-red-950/80 hover:bg-red-900 text-red-300 border border-red-800 text-xs rounded transition flex items-center space-x-1" title="Delete Selected Object (Del)">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span>Delete</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR: PROPERTIES EDITOR -->
+        <aside class="w-80 bg-slate-900 border-l border-slate-800 flex flex-col shrink-0">
+            <div class="p-3 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
+                <span class="font-pixel text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-sliders mr-1"></i> Properties</span>
+                <span id="propTypeBadge" class="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 uppercase font-pixel">-</span>
+            </div>
+
+            <div id="propertiesForm" class="flex-1 overflow-y-auto p-4 space-y-4">
+                <div class="text-center py-12 text-slate-600 text-xs">
+                    <i class="fa-solid fa-arrow-pointer text-2xl mb-2 text-slate-700"></i>
+                    <p>Pilih objek atau child item untuk melihat dan mengedit properti</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-yellow-500 text-slate-950 font-bold px-4 py-2.5 rounded shadow-xl font-pixel text-xs transition transform translate-y-20 opacity-0 flex items-center space-x-2 z-50">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toastMessage">Action successful!</span>
+    </div>
+
+    <!-- JSON IMPORT MODAL -->
+    <div id="importModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-lg max-w-2xl w-full p-5 space-y-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="font-pixel text-xs text-yellow-400"><i class="fa-solid fa-file-code mr-2"></i>IMPORT OBJECTS JSON</h3>
+                <button id="btnCloseImportModal" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-xs text-slate-400">Tempel struktur JSON Anda di bawah ini untuk memperbarui track editor.</p>
+            <textarea id="importJsonTextarea" class="w-full h-64 bg-slate-950 border border-slate-800 rounded p-3 text-xs font-mono-custom text-slate-200 focus:outline-none focus:border-yellow-500" placeholder="Paste objects.json content here..."></textarea>
+            <div class="flex justify-end space-x-2 pt-2">
+                <button id="btnCancelImport" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-pixel text-xs rounded transition">Batal</button>
+                <button id="btnApplyImport" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold font-pixel text-xs rounded transition">Terapkan JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="trackRenderer.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>

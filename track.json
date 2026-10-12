@@ -1,0 +1,39 @@
+{
+  "world": {
+    "width": 3200,
+    "height": 2400,
+    "grassColor": "#15803d"
+  },
+  "road": {
+    "outerWidth": 150,
+    "outerColor": "#3a3a3a",
+    "innerWidth": 130,
+    "innerColor": "#555555",
+    "lineCap": "round",
+    "lineJoin": "round"
+  },
+  "startLine": {
+    "x": 800,
+    "y": 2050,
+    "rotationRad": 1.5707963267948966
+  },
+  "path": [
+    { "cmd": "moveTo", "args": [600, 2050] },
+    { "cmd": "lineTo", "args": [2400, 2050] },
+    { "cmd": "arcTo", "args": [2900, 2050, 2900, 1700, 250] },
+    { "cmd": "arcTo", "args": [2900, 1600, 2400, 1400, 250] },
+    { "cmd": "lineTo", "args": [1900, 1300] },
+    { "cmd": "bezierCurveTo", "args": [1700, 1200, 1800, 950, 2100, 950] },
+    { "cmd": "bezierCurveTo", "args": [2700, 950, 3000, 400, 2500, 250] },
+    { "cmd": "bezierCurveTo", "args": [2000, 100, 1500, 700, 1300, 850] },
+    { "cmd": "lineTo", "args": [1300, 300] },
+    { "cmd": "arcTo", "args": [1300, 200, 1100, 200, 100] },
+    { "cmd": "lineTo", "args": [600, 200] },
+    { "cmd": "arcTo", "args": [500, 200, 500, 300, 100] },
+    { "cmd": "lineTo", "args": [500, 1200] },
+    { "cmd": "bezierCurveTo", "args": [500, 1400, 1000, 1300, 1000, 1500] },
+    { "cmd": "bezierCurveTo", "args": [1000, 1700, 400, 1650, 400, 1850] },
+    { "cmd": "arcTo", "args": [400, 2050, 600, 2050, 200] },
+    { "cmd": "closePath", "args": [] }
+  ]
+}

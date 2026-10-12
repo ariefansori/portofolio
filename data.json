@@ -1,8 +1,4 @@
 {
-  "world": {
-    "width": 3200,
-    "height": 2400
-  },
   "car": {
     "x": 1200,
     "y": 2050,
@@ -40,7 +36,7 @@
   },
   "sections": [
     { "id": "about", "title": "ABOUT ME", "x": 1300, "y": 1900, "color": "#eab308" },
-    { "id": "projects", "title": "PROJECTS", "x": 2500, "y": 1300, "color": "#3b82f6" },
+    { "id": "projects", "title": "PROJECTS", "x": 2900, "y": 1000, "color": "#3b82f6" },
     { "id": "skills", "title": "SKILLS", "x": 1750, "y": 200, "color": "#22c55e" },
     { "id": "contact", "title": "CONTACT", "x": 900, "y": 600, "color": "#ef4444" }
   ],

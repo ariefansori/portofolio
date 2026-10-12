@@ -1,0 +1,171 @@
+{
+  "templates": {
+    "checkpoints": {
+      "id": "cp_new",
+      "label": "CHECKPOINT",
+      "x": 0,
+      "y": 0,
+      "w": 180,
+      "h": 50,
+      "rot": 0
+    },
+    "concreteZones": {
+      "id": "zone_new",
+      "label": "NEW ZONE",
+      "layer": 0,
+      "x": 0,
+      "y": 0,
+      "w": 400,
+      "h": 300,
+      "fillColor": "#8f9bba",
+      "gridColor": "#7884a5",
+      "gridSize": 100,
+      "pattern": "grid"
+    },
+    "parkingLots": {
+      "id": "parking_new",
+      "label": "PARKING",
+      "layer": 0,
+      "x": 0,
+      "y": 0,
+      "w": 300,
+      "h": 200,
+      "rows": 4,
+      "cols": 8,
+      "fillColor": "#9aa5c4",
+      "stopColor": "#eab308"
+    },
+    "sandTraps": {
+      "id": "sand_new",
+      "layer": 0,
+      "x": 0,
+      "y": 0,
+      "w": 400,
+      "h": 200,
+      "fillColor": "#d97706",
+      "slowFactor": 0.92
+    },
+    "lakes": {
+      "id": "lake_new",
+      "x": 0,
+      "y": 0,
+      "w": 500,
+      "h": 300,
+      "rot": 0,
+      "speedLimit": 1.8,
+      "slowFactor": 0.75,
+      "waterColor": "rgba(37, 99, 235, 0.45)",
+      "deepColor": "#1e3a8a",
+      "bankColor": "#b45309"
+    },
+    "buildings": {
+      "id": "bldg_new",
+      "name": "BUILDING",
+      "layer": 2,
+      "x": 0,
+      "y": 0,
+      "w": 200,
+      "h": 150,
+      "rot": 0,
+      "isStatic": true,
+      "color": "#334155",
+      "accent": "#e2e8f0",
+      "margin": 18,
+      "bounceFactor": 0.4
+    },
+    "grandstands": {
+      "id": "grandstand_new",
+      "name": "TRIBUNE",
+      "layer": 2,
+      "x": 0,
+      "y": 0,
+      "w": 300,
+      "h": 120,
+      "rot": 0,
+      "rows": 5,
+      "cols": 26,
+      "triggerRadius": 500,
+      "isStatic": true,
+      "bounceFactor": 0.4
+    },
+    "crowds": {
+      "id": "crowd_new",
+      "name": "CROWD",
+      "layer": 2,
+      "x": 0,
+      "y": 0,
+      "w": 300,
+      "h": 150,
+      "rot": 0,
+      "count": 40,
+      "personRadius": 10,
+      "triggerRadius": 420,
+      "fleeRadius": 90,
+      "isStatic": false,
+      "walkSpeed": 45,
+      "runSpeed": 130,
+      "returnSpeed": 38,
+      "maxFleeOffset": 170
+    },
+    "props": {
+      "type": "cone",
+      "layer": 3,
+      "x": 0,
+      "y": 0,
+      "r": 12,
+      "rot": 0,
+      "isStatic": false,
+      "bounceFactor": 0.3
+    },
+    "prefabs": {
+      "cone": {
+        "id": "cone_line_new",
+        "prefab": "cone",
+        "layer": 3,
+        "points": [],
+        "r": 12,
+        "bounceFactor": 0.3
+      },
+      "tires": {
+        "id": "tires_new",
+        "prefab": "tires",
+        "layer": 3,
+        "points": [],
+        "r": 20,
+        "isStatic": true,
+        "bounceFactor": 0.5
+      },
+      "barrier": {
+        "id": "barrier_new",
+        "prefab": "barrier",
+        "layer": 3,
+        "width": 38,
+        "height": 14,
+        "isStatic": true,
+        "bounceFactor": 0.5,
+        "barriers": []
+      },
+      "bush": {
+        "id": "bush_group_new",
+        "prefab": "bush",
+        "layer": 2,
+        "points": [],
+        "r": 50,
+        "leafColor": "#2f7d32",
+        "leafDark": "#1f5a24",
+        "leafLight": "#4caf50"
+      }
+    },
+    "bushes": {
+      "id": "bush_new",
+      "name": "BUSH",
+      "layer": 2,
+      "x": 0,
+      "y": 0,
+      "r": 50,
+      "leafColor": "#2f7d32",
+      "leafDark": "#1f5a24",
+      "leafLight": "#4caf50"
+    }
+  }
+}
